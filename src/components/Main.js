@@ -19,7 +19,7 @@ export default function Main() {
 
 
     const [allMemes, setAllMemes] = useState([])
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         fetch(`https://api.imgflip.com/get_memes`)
         .then(responses => responses.json())
@@ -52,7 +52,7 @@ export default function Main() {
                 <button>Get a new meme image 🖼</button>
             </div>
             <div className="meme">
-                <img src={meme.imageUrl} />
+                <img src={meme.imageUrl} alt="meme"/>
                 <span className="top">{meme.topText}</span>
                 <span className="bottom">{meme.bottomText}</span>
             </div>
