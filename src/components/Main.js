@@ -17,16 +17,15 @@ export default function Main() {
         }));
     }
 
-
     const [allMemes, setAllMemes] = useState([])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         fetch(`https://api.imgflip.com/get_memes`)
-        .then(responses => responses.json())
-        .then(data=>setAllMemes([data.data.memes]))
+            .then(responses => responses.json())
+            .then(data => {
+                setAllMemes(data.data.memes);
+            });
+    }, []); 
 
-        console.log(allMemes)
-    }, [])
     return (
         <main>
             <div className="form">
